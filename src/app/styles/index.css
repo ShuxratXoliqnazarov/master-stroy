@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --color-graphite: #404040;
+  --color-graphite-dark: #333333;
+  --color-accent: #e05300;
+  --color-accent-dark: #c04600;
+  --color-ink: #1d1d1d;
+  --shadow-card: 0 6px 24px rgb(0 0 0 / 0.12);
+  --shadow-card-hover: 0 14px 34px rgb(0 0 0 / 0.18);
+  --animate-fade-in: fade-in 0.25s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* высота закреплённой шапки, чтобы якоря не прятались под ней */
+    scroll-padding-top: 84px;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-[1082px] px-4 md:px-6 lg:px-4;
+}
+
+@utility section-title {
+  @apply text-center text-[26px] leading-tight font-bold md:text-[32px] lg:text-[38px];
+}
+
+@utility btn {
+  @apply inline-flex h-[60px] items-center justify-center rounded-full px-10 whitespace-nowrap text-base font-bold transition
+    focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-accent;
+}
+
+/* основная оранжевая кнопка: на мобильных во всю ширину */
+@utility btn-accent {
+  @apply btn w-full bg-accent text-white hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg active:translate-y-0 sm:w-[240px];
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* появление блоков при скролле */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}

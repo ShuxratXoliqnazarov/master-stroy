@@ -1,0 +1,10 @@
+[
+  { "id": "pressed", "title": "Прессованная плитка", "image": "/img/catalog/pressed.svg" },
+  { "id": "vibro", "title": "Вибролитая плитка", "image": "/img/catalog/vibro.svg" },
+  { "id": "garden-border", "title": "Садовый бордюр", "image": "/img/catalog/garden-border.svg" },
+  { "id": "road-border", "title": "Дорожный бордюр", "image": "/img/catalog/road-border.svg" },
+  { "id": "blocks", "title": "Строительные блоки", "image": "/img/catalog/blocks.svg" },
+  { "id": "facade", "title": "Фасадная плитка", "image": "/img/catalog/facade.svg" },
+  { "id": "drain", "title": "Водостоки тротуарные", "image": "/img/catalog/drain.svg" },
+  { "id": "caps", "title": "Крышки на столбы", "image": "/img/catalog/caps.svg" }
+]

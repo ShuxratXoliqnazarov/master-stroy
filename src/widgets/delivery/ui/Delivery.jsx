@@ -1,15 +1,10 @@
-import { useState } from 'react'
-import { CONTACTS, telHref } from '../data/site'
-import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from './icons'
-import { useModal } from './ModalContext'
-import Reveal from './Reveal'
+import { useCallbackRequest } from '@/features/callback-request'
+import { CONTACTS } from '@/shared/config'
+import { telHref } from '@/shared/lib'
+import { ClockIcon, MailIcon, PhoneIcon, PinIcon, Reveal, YandexMap } from '@/shared/ui'
 
-const [lon, lat] = CONTACTS.coords
-const MAP_SRC = `https://yandex.ru/map-widget/v1/?ll=${lon}%2C${lat}&z=13&pt=${lon}%2C${lat}%2Cpm2rdl&lang=ru_RU`
-
-export default function Delivery() {
-  const { openCallback } = useModal()
-  const [mapActive, setMapActive] = useState(false)
+export function Delivery() {
+  const { openCallback } = useCallbackRequest()
 
   return (
     <section id="delivery" className="py-16 md:py-24 lg:py-[120px]">
@@ -76,27 +71,12 @@ export default function Delivery() {
         </div>
       </div>
 
-      <Reveal className="relative mt-10 h-[320px] w-full bg-black/5 md:mt-14 md:h-[420px] lg:mt-[82px] lg:h-[480px]">
-        <iframe
-          src={MAP_SRC}
+      <Reveal className="mt-10 md:mt-14 lg:mt-[82px]">
+        <YandexMap
+          coords={CONTACTS.coords}
           title="Производство «Мастер Строй» на Яндекс.Картах"
-          loading="lazy"
-          className="h-full w-full border-0"
-          allowFullScreen
+          className="h-[320px] w-full md:h-[420px] lg:h-[480px]"
         />
-        {!mapActive && (
-          // перехватываем колесо/свайп, чтобы карта не мешала прокрутке страницы
-          <button
-            type="button"
-            onClick={() => setMapActive(true)}
-            className="group absolute inset-0 flex items-end justify-center pb-6"
-            aria-label="Активировать карту"
-          >
-            <span className="rounded-full bg-graphite/85 px-5 py-2.5 text-sm text-white opacity-0 transition-opacity group-hover:opacity-100 max-lg:opacity-100">
-              Нажмите, чтобы управлять картой
-            </span>
-          </button>
-        )}
       </Reveal>
     </section>
   )

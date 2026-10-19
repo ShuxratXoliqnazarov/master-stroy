@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { CONTACTS, telHref } from '../data/site'
-import { ChevronIcon, ClockIcon, MailIcon, PhoneIcon, PinIcon } from './icons'
+import { CONTACTS } from '@/shared/config'
+import { telHref } from '@/shared/lib'
+import { ChevronIcon, ClockIcon, MailIcon, PhoneIcon, PinIcon } from '@/shared/ui'
 
 const COLUMNS = [
   {
@@ -59,7 +60,7 @@ function FooterColumn({ title, links }) {
   )
 }
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="bg-white pt-14 pb-8 md:pt-16">
       <div className="container-site">

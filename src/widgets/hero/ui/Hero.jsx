@@ -1,6 +1,6 @@
-import Reveal from './Reveal'
+import { Reveal } from '@/shared/ui'
 
-export default function Hero() {
+export function Hero() {
   return (
     <section
       id="top"

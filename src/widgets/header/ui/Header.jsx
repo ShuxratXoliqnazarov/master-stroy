@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
-import { CONTACTS, NAV, telHref } from '../data/site'
-import { useLockScroll } from '../hooks/useLockScroll'
-import { PhoneIcon } from './icons'
-import Logo from './Logo'
-import { useModal } from './ModalContext'
+import { useCallbackRequest } from '@/features/callback-request'
+import { CONTACTS, NAV } from '@/shared/config'
+import { telHref, useLockScroll } from '@/shared/lib'
+import { Logo, PhoneIcon } from '@/shared/ui'
 
-export default function Header() {
+export function Header() {
   const [open, setOpen] = useState(false)
   const [stuck, setStuck] = useState(false)
-  const { openCallback } = useModal()
+  const { openCallback } = useCallbackRequest()
   useLockScroll(open)
 
   useEffect(() => {

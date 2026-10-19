@@ -1,6 +1,6 @@
-import Reveal from './Reveal'
+import { Reveal } from '@/shared/ui'
 
-export default function About() {
+export function About() {
   return (
     <section id="about" className="bg-graphite text-white">
       <div className="grid lg:grid-cols-[minmax(0,748fr)_minmax(0,852fr)]">

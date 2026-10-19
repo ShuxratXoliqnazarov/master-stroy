@@ -1,19 +1,8 @@
 import { useState } from 'react'
-import Lightbox from './Lightbox'
-import Reveal from './Reveal'
+import { Lightbox, Reveal } from '@/shared/ui'
+import { WORKS } from '../model/works'
 
-const WORKS = [
-  'Дорожка из плитки «Волна» вдоль забора',
-  'Площадка из брусчатки в три цвета',
-  'Отмостка вокруг деревянного дома',
-  'Площадка у дома, мозаичная укладка',
-  'Садовая дорожка к беседке',
-  'Дорожка с узором «3D-куб»',
-  'Дорожка из кирпичика в саду',
-  'Укладка плитки на подготовленное основание',
-].map((alt, i) => ({ src: `/img/works/work-${i + 1}.svg`, alt }))
-
-export default function Works() {
+export function Works() {
   const [active, setActive] = useState(null)
 
   return (

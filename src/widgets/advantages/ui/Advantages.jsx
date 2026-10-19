@@ -1,5 +1,4 @@
-import { ChecklistIcon, DeliveryIcon, AwardIcon, MoneyIcon, UserSearchIcon, WorkerIcon } from './icons'
-import Reveal from './Reveal'
+import { AwardIcon, ChecklistIcon, DeliveryIcon, MoneyIcon, Reveal, UserSearchIcon, WorkerIcon } from '@/shared/ui'
 
 const ITEMS = [
   {
@@ -34,7 +33,7 @@ const ITEMS = [
   },
 ]
 
-export default function Advantages() {
+export function Advantages() {
   return (
     <section id="advantages" className="bg-graphite py-16 md:py-24 lg:py-[120px]">
       <div className="container-site">

@@ -1,9 +1,9 @@
-import { fetchProducts } from '../api/client'
-import { useFetch } from '../hooks/useFetch'
-import ProductCard from './ProductCard'
-import Reveal from './Reveal'
+import { fetchProducts, ProductCardSkeleton } from '@/entities/product'
+import { useFetch } from '@/shared/lib'
+import { Reveal } from '@/shared/ui'
+import { TopProductItem } from './TopProductItem'
 
-export default function TopProducts() {
+export function TopProducts() {
   const { data, loading, error } = useFetch(fetchProducts)
 
   return (
@@ -16,13 +16,10 @@ export default function TopProducts() {
         )}
 
         <div className="mx-auto mt-10 grid max-w-[640px] gap-6 md:mt-14 lg:mt-[82px] lg:max-w-none lg:grid-cols-2 lg:gap-x-[30px] lg:gap-y-[17px]">
-          {loading &&
-            Array.from({ length: 6 }, (_, i) => (
-              <div key={i} className="h-[349px] animate-pulse rounded-[30px] bg-black/5" />
-            ))}
+          {loading && Array.from({ length: 6 }, (_, i) => <ProductCardSkeleton key={i} />)}
           {data?.map((product, i) => (
             <Reveal key={product.id} delay={(i % 2) * 100}>
-              <ProductCard product={product} />
+              <TopProductItem product={product} />
             </Reveal>
           ))}
         </div>

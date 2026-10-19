@@ -1,11 +1,12 @@
-import { CONTACTS, telHref } from '../data/site'
-import { ClockIcon, PhoneIcon, PinIcon } from './icons'
-import { useModal } from './ModalContext'
+import { useCallbackRequest } from '@/features/callback-request'
+import { CONTACTS } from '@/shared/config'
+import { telHref } from '@/shared/lib'
+import { ClockIcon, PhoneIcon, PinIcon } from '@/shared/ui'
 
 const divider = <span className="hidden h-11 w-px bg-white/30 lg:block" aria-hidden="true" />
 
-export default function TopBar() {
-  const { openCallback } = useModal()
+export function TopBar() {
+  const { openCallback } = useCallbackRequest()
   const [p1, p2, p3] = CONTACTS.phones
 
   return (
